@@ -1,11 +1,14 @@
-﻿namespace BookListMVC.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BookListMVC.Models
 {
-    public class ApplicationDbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+        public DbSet<Book> Books { get; set; }
     }
 
 }
